@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace Diary_WPF.Commands
+namespace Diary.Commands
 {
     public class RelayCommand : ICommand
     {
         readonly Action<object> _execute;
         readonly Predicate<object> _canExecute;
-        private Action<object> refreshStudent;
 
-
-
-        public RelayCommand(ICommand refreshStudentCommand, Action<object> execute)
+        public RelayCommand(Action<object> execute)
             : this(execute, null)
         {
         }
@@ -20,17 +17,6 @@ namespace Diary_WPF.Commands
         {
             _execute = execute ?? throw new ArgumentNullException("execute");
             _canExecute = canExecute;
-        }
-
-        public RelayCommand(Action<object> refreshStudent, Action<object> canRefreshStudents)
-        {
-            this.refreshStudent = refreshStudent;
-
-        }
-
-        public RelayCommand(Action<object> refreshStudent)
-        {
-            this.refreshStudent = refreshStudent;
         }
 
         public bool CanExecute(object parameter)

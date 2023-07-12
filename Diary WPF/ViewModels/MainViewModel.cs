@@ -1,4 +1,5 @@
-﻿using Diary_WPF.Commands;
+﻿using Diary.Commands;
+using Diary_WPF.Commands;
 using Diary_WPF.Models;
 using Diary_WPF.Views;
 using MahApps.Metro.Controls;
@@ -21,6 +22,7 @@ namespace Diary_WPF.ViewModels
             RefreshStudentCommand = new RelayCommand(RefreshStudent);
 
             RefreshDiary();
+
             InitGroups();
 
         }

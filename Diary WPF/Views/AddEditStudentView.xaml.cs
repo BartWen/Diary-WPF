@@ -1,4 +1,5 @@
 ﻿using Diary_WPF.Models;
+using Diary_WPF.ViewModels;
 using MahApps.Metro.Controls;
 
 namespace Diary_WPF.Views
@@ -12,7 +13,7 @@ namespace Diary_WPF.Views
         {
             InitializeComponent();
 
-            DataContext = new AddEditStudentView(student);
+            DataContext = new AddEditStudentsViewModels(student);
         }
 
     }

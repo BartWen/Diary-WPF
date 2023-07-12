@@ -11,6 +11,7 @@ namespace Diary_WPF.Views
         public MainWindow()
         {
             InitializeComponent();
+
             DataContext = new MainViewModel();
         }
     }

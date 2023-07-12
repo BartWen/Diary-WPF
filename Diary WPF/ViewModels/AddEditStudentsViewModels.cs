@@ -1,5 +1,7 @@
-﻿using Diary_WPF.Commands;
+﻿using Diary.Commands;
+using Diary_WPF.Commands;
 using Diary_WPF.Models;
+using System;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
@@ -8,10 +10,11 @@ namespace Diary_WPF.ViewModels
 {
     internal class AddEditStudentsViewModels : ViewModelBase
     {
+
         public AddEditStudentsViewModels(Student student = null)
         {
-            CloseCommand = new RelayCommand(Close);
-            ConfirmCommand = new RelayCommand(Confirm);
+            CloseCommand = new RelayCommand (Close);
+            ConfirmCommand = new RelayCommand (Confirm);
 
             if (student == null)
             {
@@ -24,6 +27,7 @@ namespace Diary_WPF.ViewModels
             }
 
             InitGroups();
+           
         }
 
         public ICommand CloseCommand { get; set; }
@@ -75,6 +79,9 @@ namespace Diary_WPF.ViewModels
                 OnPropertyChanged();
             }
         }
+
+        public Action<object, EventArgs> Closed { get; internal set; }
+
         private void InitGroups()
         {
             Groups = new ObservableCollection<Group>()
@@ -83,6 +90,7 @@ namespace Diary_WPF.ViewModels
                 new Group {Id=1, Name="1A"},
                 new Group {Id=2, Name="2A"}
            };
+            
             Student.Group.Id = 0;
 
         }
@@ -93,12 +101,12 @@ namespace Diary_WPF.ViewModels
 
                 AddStudent();
             else
-                UptadeStudent();
+                UpdadeStudent();
 
             CloseWindow(obj as Window);
         }
 
-        private void UptadeStudent()
+        private void UpdadeStudent()
         {
             //baza danych
         }

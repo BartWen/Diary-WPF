@@ -4,8 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Diary_WPF"
-        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-        mc:Ignorable="d"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro" 
+                 xmlns:viewmodels="clr-namespace:Diary_WPF.ViewModels" 
+                 d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
+                 mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="Dziennik uczna" Height="450" Width="900">
     <Window.Resources>
@@ -48,7 +50,7 @@
                 DisplayMemberPath="Name"
                 SelectedValuePath="Id"
                 />
-            <!--<TextBox Text="{Binding Test, Mode=OneWayToSource}" Height="25" Width="100" Margin="5"/>-->
+           
         </StackPanel>
         <DataGrid
             Grid.Row="1" 
@@ -69,7 +71,7 @@
                 <DataGridTextColumn Binding="{Binding Physics}" Header="Fizyka"/>
                 <DataGridTextColumn Binding="{Binding PolishLang}" Header="Język Polski"/>
                 <DataGridTextColumn Binding="{Binding ForeignLang}" Header="Język Obcy"/>
-                <DataGridCheckBoxColumn Binding="{Binding Activites}" Header="Zajęcia Dodatkowe"/>
+                <DataGridCheckBoxColumn Binding="{Binding Activities}" Header="Zajęcia Dodatkowe"/>
                 <DataGridTextColumn Binding="{Binding Group.Name}" Header="Grupa"/>
             </DataGrid.Columns>
 
